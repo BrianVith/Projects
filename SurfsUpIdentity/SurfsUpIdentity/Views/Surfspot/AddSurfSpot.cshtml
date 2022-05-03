@@ -1,0 +1,88 @@
+@model SurfsUpIdentity.ViewModels.SurfSpotViewModel;
+
+
+
+<section class="single-page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Nyt Surfspot</h1>
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="align-content-center" style="margin-top: 50px">
+    <div class="container" style="width: 60vw">
+        <h2 class="align-content-center">Del et nyt surfspot</h2>
+        <p>
+            <br /><br />
+            <strong>Udfyld formularen herunder for at dele det nye surfspot med andre surfere.</strong>
+
+        </p>
+    </div>
+
+</section>
+
+<!--Start Contact Us
+   =========================================== -->
+<section class="contact-us" id="contact">
+
+    <div class="contact-form">
+        <div class="container">
+
+           @using (Html.BeginForm("AddSurfSpot", "Surfspot", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                Html.ValidationSummary();
+            <div class="row">
+
+                <div class="col">
+                    <div class="form-group ">
+                        @Html.LabelFor(x => x.Title)
+                        @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.Title)
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Latitude)
+                        @Html.TextBoxFor(x => x.Latitude, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.Latitude)
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Longitude)
+                        @Html.TextBoxFor(x => x.Longitude, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.Longitude)
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.City)
+                        @Html.TextBoxFor(x => x.City, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.City)
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.PostCode)
+                        @Html.TextBoxFor(x => x.PostCode, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.PostCode)
+                    </div>
+
+                    <div class="form-group ">
+                        @Html.LabelFor(x => x.Image)
+                        @Html.TextBoxFor(x => x.Image, new { Type = "file", @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Image)
+                    </div>
+                </div>
+            </div>
+                   
+                <div id="cf-submit" class="text-center" style="margin-top: 30px">
+                    <Input type="submit" class="btn btn-primary btn-lg" value="Del Nyt Surfspot" />
+                </div>
+            }
+           
+        </div>
+
+    </div>
+
+</section> <!-- end section -->

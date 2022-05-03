@@ -1,0 +1,46 @@
+﻿@model SurfsUpIdentity.Models.Equipment
+
+<section class="single-page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Lej Vandsportsudstyr</h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="text-center mt-30">
+
+
+    <h4 class="mt-30">@Model.Title</h4>
+
+    <img class="mt-30" style=" height: 450px; width: auto;" src="~/Upload/@Model.Pictures" alt="No image" />
+
+
+    <h4 class="mt-30">Tilstand: @Model.Condition</h4>
+
+    <h4 class="mt-30">Type: @Model.BoardType</h4>
+
+    <h4 class="mt-30">Beskrivelse</h4>
+    <p class="mt-30">
+        @Model.Description
+    </p>
+
+    <h4 class="mt-30">@Model.User.City.CityName</h4>
+
+    <h4 class="mt-30">@Model.User.City.PostalCode</h4>
+
+    <h4 class="mt-30">@Model.Price</h4>
+
+    <h4 class="mt-30">@Model.Deposit</h4>
+
+</div>
+
+<div class="border"></div>
+
+<div class="container text-center">
+    <button class="PaymentButton mt-30" style="margin-bottom:30px" onclick='window.location.href="@Url.Action("LenderInfo", "BorrowEquipment", Model.User)"'>Betal!</button>
+</div>
+
+

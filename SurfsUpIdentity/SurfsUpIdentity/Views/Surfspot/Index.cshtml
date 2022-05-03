@@ -1,0 +1,40 @@
+﻿@model List<SurfSpotViewModel>
+
+<section class="single-page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Surfspots</h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section>
+
+    <div class="container">
+        <h2 class="text-center">Spots</h2>
+        <p class="text-center">Se alle vores spots i listen herunder</p>
+        <a href="@Url.Action("AddSurfSpot", "Surfspot")">Tilføj nyt surfspot</a>
+        <div class="card-group">
+
+            <!--bootstrap card with 3 horizontal images-->
+            <div class="row align-content-md-around mt-3">
+                @foreach (var item in Model)
+                {
+                    <div class="card col-md-4">
+                        <h1 class="text-center">@item.Title</h1>
+                        <a href="@Url.Action("SurfSpot", "SurfSpot", @item)">
+                            <img class="img-thumbnail" src="~/Upload/@item.ImagePath">
+                        </a>
+
+                        <div class="card-body">
+                            <h3 class="card-title">@item.City, @item.PostCode</h3>
+                        </div>
+                    </div>
+                }
+                </div>
+            </div>
+        </div>
+</section>

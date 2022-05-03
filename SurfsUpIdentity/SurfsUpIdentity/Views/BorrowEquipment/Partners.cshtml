@@ -1,0 +1,33 @@
+﻿@model List<PartnerEquipment>
+
+
+<section class="single-page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Lej Vandsportsudstyr</h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<div class="table table-responsive text-center">
+    <table id="myTable" style="width:100%">
+        <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Price</th>
+            <th scope="col">Deposit</th>
+            <th scope="col">Description</th>
+        </tr>
+        @foreach (var equipment in Model)
+        {
+            <tr>
+                <td class="col-3 block">@equipment.Title</td>
+                <td class="col-3 block">@equipment.Price</td>
+                <td class="col-3 block">@equipment.Deposit</td>
+                <td class="col-3 block">@equipment.Description</td>
+            </tr>
+        }
+    </table>
+</div>

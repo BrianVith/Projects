@@ -1,0 +1,249 @@
+﻿<Window x:Class="Fællessystem.View.ViewMemberListWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Fællessystem.View"
+        mc:Ignorable="d"
+        Title="ViewMemberListWindow" 
+        Height="768" 
+        Width="1024"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        MouseDown="Window_MouseDown" 
+        WindowStartupLocation="CenterScreen"
+        Name="ViewMemberList">
+
+    <StackPanel Background="Black">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+        </Grid>
+
+        <StackPanel Background="Black" 
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center">
+
+            <Image Grid.Column="0"
+                   HorizontalAlignment="Center"
+                   Width="800" 
+                   Height="150" 
+                   Source="Images/FællesLogoWhite.png"
+                   RenderOptions.BitmapScalingMode="HighQuality"/>
+
+        </StackPanel>
+
+
+        <StackPanel Background="Black"
+                Height="500"
+                Width="1024">
+            <Grid>
+                                
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="5*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Margin="100,0,100,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                
+                    <StackPanel 
+                        Grid.Column="0">
+
+                        <Label 
+                            Foreground="#9eeb47" 
+                            Grid.Row="0" 
+                            Margin="10, 20, 10, 0" 
+                            FontSize="24" 
+                            FontFamily="Fonts/#Raleway" 
+                            HorizontalContentAlignment="Center"  
+                            FontWeight="Bold">Søg Rolle
+                        </Label>
+
+                        <ComboBox
+                            ItemsSource="{Binding RoleVMs}"
+                            SelectedItem="{Binding Path=SelectedRole}"                            
+                            Grid.Row="0"
+                            Name="ComboRoleType"
+                            HorizontalAlignment="Center"
+                            Width="155"
+                            MaxHeight="30"
+                            MaxDropDownHeight="200"
+                            Text="Vælg billettype"                                       
+                            Margin="10, 5, 10, 20"
+                            SelectionChanged="ComboRoleType_SelectionChanged">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel 
+                                        Orientation="Horizontal">
+
+                                        <TextBlock 
+                                            Text="{Binding Path=RoleName}"/>
+
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                    </StackPanel>
+                    
+                    <StackPanel 
+                        Grid.Column="1">
+
+                        <Label 
+                            Foreground="#9eeb47" 
+                            Grid.Row="0" 
+                            Margin="10, 20, 10, 0" 
+                            FontSize="24" 
+                            FontFamily="Fonts/#Raleway"
+                            HorizontalContentAlignment="Center"  
+                            FontWeight="Bold">Billetter I År
+                        </Label>
+
+                        <ComboBox
+                            ItemsSource="{Binding TicketChoiceVMs}"
+                            SelectedItem="{Binding Path=SelectedTicketChoice}"
+                            Grid.Row="0"
+                            Name="ComboTicketFoodChoice"
+                            HorizontalAlignment="Center"
+                            Width="155"
+                            MaxHeight="30"
+                            MaxDropDownHeight="200"
+                            Text="Vælg billettype"                                       
+                            Margin="10, 5, 10, 20" 
+                            SelectionChanged="ComboTicketFoodChoice_SelectionChanged">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel 
+                                        Orientation="Horizontal">
+
+                                        <TextBlock 
+                                            Text="{Binding Path=TicketChoiceName}"/>
+
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                    </StackPanel>
+
+                    <StackPanel 
+                        Grid.Column="2">
+
+                        <Label 
+                            Foreground="#9eeb47" 
+                            Grid.Row="0" 
+                            Margin="10, 20, 10, 0" 
+                            FontSize="24" 
+                            FontFamily="Fonts/#Raleway" 
+                            HorizontalContentAlignment="Center"  
+                            FontWeight="Bold">Madvalg
+                        </Label>
+
+                        <ComboBox
+                            ItemsSource="{Binding FoodChoiceVMs}"
+                            SelectedItem="{Binding Path=SelectedFoodChoice}"
+                            Grid.Row="0"
+                            Name="ComboFoodChoice"
+                            HorizontalAlignment="Center"
+                            Width="155"
+                            MaxHeight="30"
+                            MaxDropDownHeight="200"
+                            Text="Vælg billettype"                                       
+                            Margin="10, 5, 10, 20" SelectionChanged="ComboFoodChoice_SelectionChanged" >
+
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel 
+                                        Orientation="Horizontal">
+
+                                        <TextBlock 
+                                            Text="{Binding Path=FoodChoiceName}"/>
+
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                    </StackPanel>
+                </Grid>
+                
+                <DataGrid 
+                    IsReadOnly="True"
+                    ScrollViewer.CanContentScroll="True"
+                    ScrollViewer.VerticalScrollBarVisibility="Auto"
+                    Grid.Row="1"
+                    MaxWidth="850"
+                    MaxHeight="390"
+                    x:Name="dgMemberList"
+                    LoadingRow="dgMemberList_LoadingRow"
+                    Margin="10"
+                    AutoGenerateColumns="False"
+                    ItemsSource="{Binding MemberListVMs}" >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Medlemsnavn" Binding="{Binding MemberName}"/>
+                        <DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
+                        <DataGridTextColumn Header="Tlf. nr." Binding="{Binding PhoneNumber}"/>
+                        <DataGridTextColumn Header="Rolle" Binding="{Binding RoleName}"/>
+                        <DataGridTextColumn Header="Billetnr." Binding="{Binding TicketID}"/>
+                        <DataGridTextColumn Header="Fribilletnr." Binding="{Binding FreeTicketID}"/>
+                        <DataGridTextColumn Header="Madvalg" Binding="{Binding FoodChoiceName}"/>
+                        <DataGridTextColumn Header="Billettype" Binding="{Binding TicketTypeName}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </StackPanel>
+
+        <StackPanel 
+            Background="Black">
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button
+                    x:Name="Accept" 
+                    Grid.Column="2"
+                    Margin="20"            
+                    FontSize="30"
+                    FontWeight="Bold"
+                    Template="{StaticResource MordernButtonTemplate}"
+                    Style="{StaticResource ModernButtonStyleIsEnabled}"
+                    Command="{Binding Path= SearchCmd}"
+                    CommandParameter="{Binding}">Søg
+                </Button>
+
+                <Button
+                    x:Name="Reset"
+                    Grid.Column="1"
+                    Margin="20"
+                    FontSize="30"
+                    FontWeight="Bold"
+                    Template="{StaticResource MordernButtonTemplate}"
+                    Style="{StaticResource ModernButtonStyle}"
+                    Click="Reset_Click">Nulstil
+                    
+                </Button>
+                
+                <Button
+                    x:Name="Back"
+                    Grid.Column="0"
+                    Margin="20"
+                    FontSize="30"
+                    FontWeight="Bold"
+                    Template="{StaticResource MordernButtonTemplate}"
+                    Style="{StaticResource ModernButtonStyle}"
+                    Command="{Binding Path= CloseCmd}"
+                    CommandParameter="{Binding ElementName = ViewMemberList}">Tilbage                   
+                </Button>
+            </Grid>
+        </StackPanel>
+    </StackPanel>
+</Window>
