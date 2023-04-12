@@ -1,0 +1,25 @@
+@model SpotReview
+
+<div class="container" style="width:50vw">
+    <h2 class="text-center mt-5">Beskriv din oplevelse</h2>
+    @using (Html.BeginForm("SubmitReview", "SurfSpot", FormMethod.Post, new {enctype = "multipart/form-data"}))
+    {
+        <div class="row">
+
+            <div class="col">
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Title)
+                    @Html.TextBoxFor(x => x.Title, new {@class = "form-control"})
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Description)
+                    @Html.TextAreaFor(x => x.Description, new {@class = "form-control"})
+                </div>
+                <div>
+                    <button type="submit" class="p-2 btn-primary mb-2">Send Kommentar</button>
+                </div>
+            </div>
+        </div>
+
+    }
+</div>

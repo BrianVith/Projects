@@ -1,0 +1,356 @@
+﻿<Window x:Class="Fællessystem.View.NewVolunteerApplicationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Fællessystem.View"
+        mc:Ignorable="d"
+        Title="NewVolunteerApplicationWindow"
+        Height="640" 
+        Width="800"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        MouseDown="Window_MouseDown" 
+        WindowStartupLocation="CenterScreen"
+        Name="VolunteerApplicationWindow">
+    
+    <StackPanel Orientation="Vertical">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+        </Grid>
+
+        <StackPanel 
+            Background="Black" 
+            Orientation="Vertical" >
+
+            <Image 
+                Grid.Column="0" 
+                Width="800" 
+                Height="150" 
+                Source="Images/FællesLogoWhite.png"
+                RenderOptions.BitmapScalingMode="HighQuality"/>
+        </StackPanel>
+        
+        <StackPanel Orientation="Vertical" 
+                    Background="Black">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="500"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="2*"/>
+                    </Grid.RowDefinitions>
+
+                    <Label                         
+                        Grid.Row="0"
+                        Foreground="#9eeb47"
+                        HorizontalAlignment="Left"
+                        FontFamily="Fonts/#Raleway"
+                        FontSize="18"
+                        FontWeight="Bold">OpNedMad
+
+                        <Label.Style>
+                            <Style TargetType="Label">
+                                <Setter Property="Visibility" Value="Hidden"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=cbUpDownFood, Path=IsChecked}" Value="True">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Label.Style>
+                    </Label>
+
+                    <TextBox                          
+                        Margin="5,5,30,5"                        
+                        BorderThickness="3"                        
+                        BorderBrush="Red"
+                        Text="Skriv erfaring og kommentar her!"
+                        FontSize="16" 
+                        FontFamily="Fonts/#Raleway"
+                        FontWeight="Bold"                         
+                        TextWrapping="Wrap" 
+                        AcceptsReturn="True"
+                        MaxHeight="45"                        
+                        IsMouseDirectlyOverChanged="TextBox_IsMouseDirectlyOverChanged"
+                        LostFocus="TextBox_LostFocus"
+                        GotMouseCapture="tbComment_GotMouseCapture"
+                        Grid.Row="1"
+                        x:Name="tbUpDownFood">
+
+                        <TextBox.Style>
+                            <Style TargetType="{x:Type TextBox}">
+                                <Setter Property="Visibility" Value="Hidden"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=cbUpDownFood, Path=IsChecked}" Value="True">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+
+                    <Label 
+                        Foreground="#9eeb47"
+                        FontFamily="Fonts/#Raleway"
+                        FontSize="18"
+                        FontWeight="Bold"                        
+                        Grid.Row="2">Køkken
+
+                        <Label.Style>
+                            <Style TargetType="Label">
+                                <Setter Property="Visibility" Value="Hidden"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=cbKitchen, Path=IsChecked}" Value="True">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Label.Style>
+                    </Label>
+
+                    <TextBox 
+                        Margin="5,5,30,5"                        
+                        BorderThickness="3"                        
+                        BorderBrush="Red"
+                        Text="Skriv erfaring og kommentar her!"
+                        FontSize="16" 
+                        FontFamily="Fonts/#Raleway"
+                        FontWeight="Bold"                         
+                        TextWrapping="Wrap" 
+                        AcceptsReturn="True"
+                        MaxHeight="45"                        
+                        IsMouseDirectlyOverChanged="TextBox_IsMouseDirectlyOverChanged"
+                        LostFocus="TextBox_LostFocus"
+                        GotMouseCapture="tbComment_GotMouseCapture"
+                        Grid.Row="3"
+                        x:Name="tbKitchen">
+                        
+                        <TextBox.Style>
+                            <Style TargetType="{x:Type TextBox}">
+                                <Setter Property="Visibility" Value="Hidden"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=cbKitchen, Path=IsChecked}" Value="True">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+
+                    <Label 
+                        Grid.Row="4"
+                        Foreground="#9eeb47"
+                        HorizontalAlignment="Left"
+                        FontFamily="Fonts/#Raleway"
+                        FontSize="18"
+                        FontWeight="Bold">BetaBar
+                        <Label.Style>
+                            <Style TargetType="{x:Type Label}" >
+                                <Setter Property="Visibility" Value="Hidden"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=cbBetaBar, Path=IsChecked}" Value="True">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Label.Style>
+                    </Label>
+
+                    <TextBox 
+                        Margin="5,5,30,5"                        
+                        BorderThickness="3"                        
+                        BorderBrush="Red"
+                        Text="Skriv erfaring og kommentar her!"
+                        FontSize="16" 
+                        FontFamily="Fonts/#Raleway"
+                        FontWeight="Bold"                         
+                        TextWrapping="Wrap" 
+                        AcceptsReturn="True"
+                        MaxHeight="45"
+                        x:Name="tbBetaBar" 
+                        Grid.Row="5"
+                        IsMouseDirectlyOverChanged="TextBox_IsMouseDirectlyOverChanged"
+                        LostFocus="TextBox_LostFocus"
+                        GotMouseCapture="tbComment_GotMouseCapture">
+                        
+                        <TextBox.Style>
+                            <Style TargetType="{x:Type TextBox}">
+                                <Setter Property="Visibility" Value="Hidden"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=cbBetaBar, Path=IsChecked}" Value="True">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+
+                    <Label 
+                        Grid.Row="6"
+                        Foreground="#9eeb47"
+                        HorizontalAlignment="Left"
+                        FontFamily="Fonts/#Raleway"
+                        FontSize="18"
+                        FontWeight="Bold">AlternaBar
+                        <Label.Style>
+                            <Style TargetType="{x:Type Label}">
+                                <Setter Property="Visibility" Value="Hidden"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=cbAlternaBar, Path=IsChecked}" Value="True">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Label.Style>
+                    </Label>
+
+                    <TextBox  
+                        Margin="5,5,30,5"                        
+                        BorderThickness="3"                        
+                        BorderBrush="Red"
+                        Text="Skriv erfaring og kommentar her!"
+                        FontSize="16" 
+                        FontFamily="Fonts/#Raleway"
+                        FontWeight="Bold"                         
+                        TextWrapping="Wrap" 
+                        AcceptsReturn="True"
+                        MaxHeight="45"
+                        x:Name="tbAlternaBar" 
+                        Grid.Row="7"
+                        IsMouseDirectlyOverChanged="TextBox_IsMouseDirectlyOverChanged"
+                        LostFocus="TextBox_LostFocus"
+                        GotMouseCapture="tbComment_GotMouseCapture"
+                        >
+                        
+                        <TextBox.Style>
+                            <Style TargetType="{x:Type TextBox}">
+                                <Setter Property="Visibility" Value="Hidden"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=cbAlternaBar, Path=IsChecked}" Value="True">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+                </Grid>
+              
+                <StackPanel 
+                    Height="300" 
+                    Margin="10,65,0,0"                            
+                    Grid.Column="0">
+                    
+                    <CheckBox 
+                        Name="cbAllAreas" 
+                        Margin="20,0,0,10"
+                        FontFamily="Fonts/#Raleway"  
+                        FontSize="30"                          
+                        Foreground="White" 
+                        IsThreeState="True" 
+                        Checked="cbAllAreasSelected_CheckedChanged" 
+                        Unchecked="cbAllAreasSelected_CheckedChanged" Background="White" 
+                        VerticalContentAlignment="Center">Alle (Ligeglad)</CheckBox>
+
+                    <StackPanel 
+                        Margin="20,5">
+                        
+                        <CheckBox 
+                            Margin="40,0,0,10" 
+                            FontFamily="Fonts/#Raleway"    
+                            FontSize="30" 
+                            Foreground="White" 
+                            Name="cbUpDownFood" 
+                            Checked="cbAreaSelection_CheckedChanged" 
+                            Unchecked="cbAreaSelection_CheckedChanged" 
+                            VerticalContentAlignment="Center">OpNedMad</CheckBox>
+                        <CheckBox 
+                            Margin="40,0,0,10" 
+                            FontFamily="Fonts/#Raleway"  
+                            FontSize="30" 
+                            Foreground="White" 
+                            Name="cbKitchen" 
+                            Checked="cbAreaSelection_CheckedChanged" 
+                            Unchecked="cbAreaSelection_CheckedChanged" 
+                            VerticalContentAlignment="Center">Køkken</CheckBox>
+                        <CheckBox 
+                            Margin="40,0,0,10" 
+                            FontFamily="Fonts/#Raleway"    
+                            FontSize="30" 
+                            Foreground="White" 
+                            Name="cbBetaBar" 
+                            Checked="cbAreaSelection_CheckedChanged" 
+                            Unchecked="cbAreaSelection_CheckedChanged" 
+                            VerticalContentAlignment="Center">BetaBar</CheckBox>
+                        <CheckBox
+                            Margin="40,0,0,0"
+                            FontFamily="Fonts/#Raleway"  
+                            FontSize="30" 
+                            Foreground="White" 
+                            Name="cbAlternaBar" 
+                            Checked="cbAreaSelection_CheckedChanged"
+                            Unchecked="cbAreaSelection_CheckedChanged" 
+                            VerticalContentAlignment="Center" 
+                            Grid.IsSharedSizeScope="True">AlternaBar</CheckBox>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+
+            <StackPanel 
+                Background="Black" 
+                Height="150">
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button
+                        IsCancel="True"
+                        Grid.Column="0"
+                        x:Name="bt_Exit"
+                        HorizontalAlignment="Center"
+                        Margin="20"
+                        VerticalAlignment="Bottom"
+                        FontSize="30"
+                        Foreground="Black"
+                        FontWeight="Bold"
+                        Template="{StaticResource MordernButtonTemplate}"
+                        Style="{StaticResource ModernButtonStyle}">Tilbage
+                    </Button >
+
+                    <Button
+                        Grid.Column="2"
+                        x:Name="btnSendApplication"
+                        HorizontalAlignment="Center"
+                        Margin="20"
+                        VerticalAlignment="Bottom"
+                        FontSize="30"
+                        Foreground="Black"
+                        FontWeight="Bold"
+                        Template="{StaticResource MordernButtonTemplate}"
+                        Style="{StaticResource ModernButtonStyleIsEnabled}"
+                        Command="{Binding Path= ConfirmCmd}"
+                        CommandParameter="{Binding ElementName = VolunteerApplicationWindow}">Send
+                    </Button >
+                </Grid>
+            </StackPanel>
+        </StackPanel>
+    </StackPanel>
+</Window>

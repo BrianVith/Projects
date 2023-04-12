@@ -1,0 +1,147 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\brian\\Dropbox\\Datamatiker\\GitLab\\eksamensteam 2b\\faellesstival\\2B-Eksamensprojekt\\UnitTestProjectMeltTilSomFrivilligMedAftale\\UnitTestProjectMeltTilSomFrivilligMedAftale.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\brian\\Dropbox\\Datamatiker\\GitLab\\eksamensteam 2b\\faellesstival\\2B-Eksamensprojekt\\Fællessystem\\Fællessystem.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\brian\\Dropbox\\Datamatiker\\GitLab\\eksamensteam 2b\\faellesstival\\2B-Eksamensprojekt\\Fællessystem\\Fællessystem.csproj",
+        "projectName": "Fællessystem",
+        "projectPath": "C:\\Users\\brian\\Dropbox\\Datamatiker\\GitLab\\eksamensteam 2b\\faellesstival\\2B-Eksamensprojekt\\Fællessystem\\Fællessystem.csproj",
+        "packagesPath": "C:\\Users\\brian\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\brian\\Dropbox\\Datamatiker\\GitLab\\eksamensteam 2b\\faellesstival\\2B-Eksamensprojekt\\Fællessystem\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\brian\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WPF": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\brian\\Dropbox\\Datamatiker\\GitLab\\eksamensteam 2b\\faellesstival\\2B-Eksamensprojekt\\UnitTestProjectMeltTilSomFrivilligMedAftale\\UnitTestProjectMeltTilSomFrivilligMedAftale.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\brian\\Dropbox\\Datamatiker\\GitLab\\eksamensteam 2b\\faellesstival\\2B-Eksamensprojekt\\UnitTestProjectMeltTilSomFrivilligMedAftale\\UnitTestProjectMeltTilSomFrivilligMedAftale.csproj",
+        "projectName": "UnitTestProjectMeltTilSomFrivilligMedAftale",
+        "projectPath": "C:\\Users\\brian\\Dropbox\\Datamatiker\\GitLab\\eksamensteam 2b\\faellesstival\\2B-Eksamensprojekt\\UnitTestProjectMeltTilSomFrivilligMedAftale\\UnitTestProjectMeltTilSomFrivilligMedAftale.csproj",
+        "packagesPath": "C:\\Users\\brian\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\brian\\Dropbox\\Datamatiker\\GitLab\\eksamensteam 2b\\faellesstival\\2B-Eksamensprojekt\\UnitTestProjectMeltTilSomFrivilligMedAftale\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\brian\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "C:\\Users\\brian\\Dropbox\\Datamatiker\\GitLab\\eksamensteam 2b\\faellesstival\\2B-Eksamensprojekt\\Fællessystem\\Fællessystem.csproj": {
+                "projectPath": "C:\\Users\\brian\\Dropbox\\Datamatiker\\GitLab\\eksamensteam 2b\\faellesstival\\2B-Eksamensprojekt\\Fællessystem\\Fællessystem.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "MSTest.TestAdapter": {
+              "target": "Package",
+              "version": "[2.1.0, )"
+            },
+            "MSTest.TestFramework": {
+              "target": "Package",
+              "version": "[2.1.0, )"
+            },
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[16.5.0, )"
+            },
+            "coverlet.collector": {
+              "target": "Package",
+              "version": "[1.2.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

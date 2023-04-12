@@ -1,0 +1,106 @@
+﻿@using SurfsUpIdentity.Enums
+@using Type = SurfsUpIdentity.Enums.Type
+@model SurfsUpIdentity.ViewModels.LendOutEquipmentViewModel;
+
+
+
+<section class="single-page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Udlej Udstyr</h1>
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="align-content-center" style="margin-top: 50px">
+    <div class="container" style="width: 60vw">
+        <h2 class="align-content-center">Tjen ekstra penge og hjælp miljøet</h2>
+        <p>
+            Udlej dit udstyr igennem SurfsUp og hjælp surfere i dit nærområde med at komme ud og surfe
+            uden at de skal køre for langt for at låne noget udstyr.
+            Vi ønsker at gøre det nemt for alle at udleje deres udstyr når de ikke bruger det.
+            Du bestemmer selv hvor meget depositum du vil tage og hvilken pris du synes er rimelig. Du står selv for forsikring af dit udstyr og vi kan ikke holdes ansvarlig for evt. skader påført af lejer
+            <br/><br/>
+            <strong>Udfyld formularen herunder og kom igang med at udleje dit vandsportsudstyr med det samme</strong>
+
+        </p>
+    </div>
+
+</section>
+
+<!--Start Contact Us
+   =========================================== -->
+<section class="contact-us" id="contact">
+
+    <div class="contact-form">
+        <div class="container">
+        
+            @using (Html.BeginForm("Index", "LendEquipment", FormMethod.Post ,new {enctype = "multipart/form-data"}))
+            {
+                Html.ValidationSummary();
+                <div class="row">
+                
+                    <div class="col">
+                        <div class="form-group ">
+                            @Html.LabelFor(x => x.Title)
+                            @Html.TextBoxFor(x => x.Title, new {@class="form-control"})
+                            @Html.ValidationMessageFor(x=>x.Title)
+                        </div>
+                        <div class="form-group ">
+                            @Html.LabelFor(x => x.BoardType)
+                            @Html.DropDownListFor(x => x.BoardType,
+                                new SelectList(Enum.GetValues(typeof(Type))), "Vælg Board",
+                                new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.BoardType)
+                        </div>
+                        
+                        <div class="form-group ">
+                            @Html.LabelFor(x => x.Price)
+                            @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Price)
+                        </div>
+                        <div class="form-group ">
+                            @Html.LabelFor(x => x.Deposit)
+                            @Html.TextBoxFor(x => x.Deposit, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Deposit)
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group ">
+                            @Html.LabelFor(x => x.Picture)
+                            @Html.TextBoxFor(x => x.Picture, new {Type = "file",@multiple="multiple", @class = "form-control"})
+                            @Html.ValidationMessageFor(m => m.Picture)
+                        </div>
+                        <div class="form-group ">
+                            @Html.LabelFor(x => x.Condition)
+                            @Html.DropDownListFor(x => x.Condition,
+                                new SelectList(Enum.GetValues(typeof(Conditions))),
+                                "Vælg Stand", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Condition)
+                        </div>
+                        @*<div class="form-group ">
+                            @Html.LabelFor(x => x.ZipCode)
+                            @Html.TextBoxFor(x => x.ZipCode, new {@class="form-control"})
+                        </div>
+                        <div class="form-group ">
+                            @Html.LabelFor(x => x.PhoneNumber)
+                            @Html.TextBoxFor(x => x.PhoneNumber, new {@class="form-control"})
+                        </div>*@
+                    <div class="form-group ">
+                        @Html.LabelFor(x => x.Description)
+                        @Html.TextAreaFor(x => x.Description, new { @class = "form-control", @rows = "6" })
+                        @Html.ValidationMessageFor(m => m.Description)
+                    </div>
+                    </div>
+                </div>
+                <div id="cf-submit" class="text-center" style="margin-top: 30px">
+                    <Input type="submit" class="btn btn-primary btn-lg" value="Udlej mit udstyr"/> </div>
+            }
+        </div>
+
+    </div>
+
+</section> <!-- end section -->
